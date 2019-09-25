@@ -1,6 +1,6 @@
 {
   "name": "@authereum/openzeppelin-sdk",
-  "version": "2.5.3-beta.2",
+  "version": "2.5.3-beta.3",
   "description": "Command-line interface for the OpenZeppelin smart contract platform",
   "main": "./lib/index.js",
   "private": false,
