@@ -36,7 +36,7 @@ interface ProjectFileData {
 }
 
 export const PROJECT_FILE_NAME = 'project.json';
-export const PROJECT_FILE_PATH = path.join(OPEN_ZEPPELIN_FOLDER, PROJECT_FILE_NAME);
+export const PROJECT_FILE_PATH = process.env.ZOS_SESSION_PATH || path.join(OPEN_ZEPPELIN_FOLDER, PROJECT_FILE_NAME);
 export const LEGACY_PROJECT_FILE_NAME = 'zos.json';
 
 export default class ProjectFile {
