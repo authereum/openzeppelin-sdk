@@ -7,6 +7,7 @@ import TruffleConfigModule from 'truffle-config';
 
 const TruffleConfig = {
   name: 'TruffleConfig',
+  cwd: null,
 
   exists(path: string = process.cwd()): boolean {
     const truffleFile = `${path}/truffle.js`;
@@ -39,7 +40,10 @@ const TruffleConfig = {
   getConfig(force: boolean = false): any | never {
     if (!force && this.config) return this.config;
     try {
-      this.config = TruffleConfigModule.detect({ logger: console });
+      this.config = TruffleConfigModule.detect({
+        logger: console,
+        workingDirectory: this.cwd,
+      });
       return this.config;
     } catch (error) {
       error.message = `Could not load truffle configuration file. Error: ${error.message}`;
@@ -68,7 +72,8 @@ const TruffleConfig = {
 
   getArtifactDefaults(config) {
     const network = config.network;
-    const rawConfig = require(require('truffle-config').search()) || {};
+    const truffleFile = require('truffle-config').search();
+    const rawConfig = truffleFile ? require(truffleFile) : {};
     const networks = rawConfig.networks || {};
     const networkConfig = networks[network];
 

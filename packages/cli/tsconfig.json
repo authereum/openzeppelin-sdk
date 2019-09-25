@@ -5,12 +5,14 @@
     "allowJs": false,
     "noEmitOnError": true,
     "declaration": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "types": ["mocha"]
   },
   "include": [
     "./src"
   ],
   "exclude": [
-    "src/models/config/blueprint.networks.js"
+    "src/models/config/blueprint.networks.js",
+    "!node_modules/@types"
   ]
 }

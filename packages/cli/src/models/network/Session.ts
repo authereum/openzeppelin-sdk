@@ -9,7 +9,7 @@ import { OPEN_ZEPPELIN_FOLDER } from '../files/constants';
 
 const state = { alreadyPrintedSessionInfo: false };
 const SESSION_FILE = '.session';
-const SESSION_PATH = path.join(OPEN_ZEPPELIN_FOLDER, SESSION_FILE);
+const SESSION_PATH = process.env.ZOS_SESSION_PATH || path.join(OPEN_ZEPPELIN_FOLDER, SESSION_FILE);
 const DEFAULT_TX_TIMEOUT: number = 10 * 60; // 10 minutes
 const DEFAULT_EXPIRATION_TIMEOUT: number = 15 * 60; // 15 minutes
 
