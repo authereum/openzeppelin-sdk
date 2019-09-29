@@ -118,7 +118,7 @@ export default class NetworkFile {
     }
 
     this.data = this.data || defaults;
-    this.filePath = this.filePath || `${process.env.ZOS_OPENZEPPELIN_PATH}/${network}.json`;
+    this.filePath = this.filePath || `${process.env.OZ_PATH}/${network}.json`;
 
     checkVersion(this.data.manifestVersion || this.data.zosversion, this.filePath);
   }
