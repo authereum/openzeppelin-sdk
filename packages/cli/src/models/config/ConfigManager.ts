@@ -27,6 +27,11 @@ const ConfigManager = {
     if (!networkName) throw Error('A network name must be provided to execute the requested action.');
 
     const { provider, artifactDefaults, network } = await this.config.loadNetworkConfig(networkName, root);
+
+    if (options.gasPrice) {
+      artifactDefaults.gasPrice = options.gasPrice;
+    }
+
     const networkId = network.networkId || network.network_id;
 
     Contracts.setSyncTimeout(timeout * 1000);
